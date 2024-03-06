@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>Form Đăng Nhập</title>
+    <script>
+        function kiemTraDangNhap() {
+            // Lấy giá trị của tên đăng nhập và mật khẩu
+            var username = document.getElementsByName("txtname")[0].value;
+            var password = document.getElementsByName("txtpass")[0].value;
+            
+            // Lấy phần tử div để hiển thị thông báo
+            var messageDiv = document.getElementById("message");
+
+            // Kiểm tra xem tên đăng nhập và mật khẩu có trống không
+            if (username === "" || password === "") {
+                // Hiển thị thông báo trên div
+                messageDiv.innerHTML = "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.";
+                return false; // Ngăn form được gửi đi nếu có lỗi
+            } else {
+                // Xóa nội dung thông báo nếu không có lỗi
+                messageDiv.innerHTML = "";
+                return true; // Cho phép form được gửi đi nếu không có lỗi
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="" method="post">
+        <table width="400" height="200" border="0" cellpadding="5" cellspacing="0" align="center">
+            <tr>
+                <th colspan="2">ĐĂNG NHẬP</th>
+            </tr>
+            <tr>
+                <td>Username</td>
+                <td><input type="text" placeholder="Nhập tên đăng nhập" size="40" name="txtname"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" placeholder="Nhập mật khẩu" size="40" name="txtpass"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <!-- Thẻ div để hiển thị thông báo -->
+                    <div id="message" style="color: red;"></div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="reset" name="btreset" value="Reset">
+                    <input type="submit" name="btok" value="OK" onclick="return kiemTraDangNhap()">
+                </td>
+            </tr>
+            
+        </table>
+    </form>
+</body>
+</html>
